@@ -25,6 +25,7 @@ namespace VidlyMVC
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap-lumen3.css",
+                      //"~/Content/bootstrap.css",
                       "~/Content/site.css"));
         }
     }
