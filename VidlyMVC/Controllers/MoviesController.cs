@@ -47,5 +47,13 @@ namespace VidlyMVC.Controllers
             return Content($"pageIndex={pageIndex}&sortBy={sortBy}"); //With string interpolated.
         }
 
+        // To test the new route:
+        //To apply the constraints, use :regex(\\d{2}) and we can use more, like range, etc.
+        [Route("movies/released/{year}/{month:regex(\\d{2}):range(1, 12)}")] 
+        public ActionResult ByReleaseDate(int? year, byte? month)
+        {
+            return Content(year + "/" + month);
+        }
+
     }
 }
