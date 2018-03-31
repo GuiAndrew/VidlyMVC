@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using VidlyMVC.Models;
+using VidlyMVC.ViewModels;
 
 namespace VidlyMVC.Controllers
 {
@@ -14,7 +15,13 @@ namespace VidlyMVC.Controllers
         {
             var movie = new Movie() { Name = "Shrek!" };
 
-            return View(movie); //We are calling this view method here which is just a helper method inherited from the base 
+            //ViewData["Movie"] = movie; //Using ViewData -> this is of type view data dictionary. This hava a magic string, witch mean is to avoid.
+            //ViewBag.Movie = movie; //Using ViewBag -> this is of type view data dictionary. And is more dynamic. But if we change here, we have to alter in the view. So is to avoid too.
+
+            //return View(); 
+
+            //Best way, is to pass the object is here.
+            //return View(movie); //We are calling this view method here which is just a helper method inherited from the base 
             ////controller class.
 
             ////Examples:
@@ -23,6 +30,21 @@ namespace VidlyMVC.Controllers
             //return new EmptyResult();
             //return RedirectToAction("Index", "Home", new { page = 1, sortBy = "name" }); //First the action, next the controller, 
             ////and the third is one anonyms method.
+
+            //// To use with viewModels:
+            var customers = new List<Customer>
+            {
+                new Customer { Name = "Customer 1" },
+                new Customer { Name = "Customer 2" }
+            };
+
+            var viewModel = new RandomMovieViewModel
+            {
+                Movie = movie,
+                Customers = customers
+            };
+
+            return View(viewModel);
         }
 
         //In here because we use an id, and the route have an id, we can use the querString and the URL.

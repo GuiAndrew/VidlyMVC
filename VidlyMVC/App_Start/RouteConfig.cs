@@ -21,7 +21,7 @@ namespace VidlyMVC
             //    "movies/released/{year}/{month}",
             //    new { controller = "Movies", action = "ByReleaseDate" },//The defults, and we use an anonymous for that.
             //    //new { year = @"\d{4}", month = @"\d{2}" }
-            //    new { year = @"2016|2017", month = @"\d{2}" } //Between 2015 or 2017.
+            //    new { year = @"2016|2017", month = @"\d{2}" } //2015 or 2017.
 
             //    ////With the names before to better read the code:
             //    //name: "MoviesByReleaseDate", //Name.
