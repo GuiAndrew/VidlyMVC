@@ -57,17 +57,17 @@ namespace VidlyMVC.Controllers
         //// The question mark in the integer it means it will accept nullable value.
         //// In the sortBy we don't have to do anything, because the string type in C# is a 
         //// reference type and it's nullable.
-        public ActionResult Index(int? pageIndex, string sortBy)
-        {
-            if (!pageIndex.HasValue)
-                pageIndex = 1;
+        //public ActionResult Index(int? pageIndex, string sortBy)
+        //{
+        //    if (!pageIndex.HasValue)
+        //        pageIndex = 1;
 
-            if (String.IsNullOrWhiteSpace(sortBy))
-                sortBy = "Name";
+        //    if (String.IsNullOrWhiteSpace(sortBy))
+        //        sortBy = "Name";
 
-            //return Content(String.Format("pageIndex={0}&sortBy={1}", pageIndex, sortBy));
-            return Content($"pageIndex={pageIndex}&sortBy={sortBy}"); //With string interpolated.
-        }
+        //    //return Content(String.Format("pageIndex={0}&sortBy={1}", pageIndex, sortBy));
+        //    return Content($"pageIndex={pageIndex}&sortBy={sortBy}"); //With string interpolated.
+        //}
 
         // To test the new route:
         //To apply the constraints, use :regex(\\d{2}) and we can use more, like range, etc.
@@ -75,6 +75,24 @@ namespace VidlyMVC.Controllers
         public ActionResult ByReleaseDate(int? year, byte? month)
         {
             return Content(year + "/" + month);
+        }
+
+        //============== 
+        public ViewResult Index()
+        {
+            var movies = GetMovies();
+
+            return View(movies); //Will return the list of movies to the view Index.
+        }
+
+        //This method is to do the list of movies.
+        private IEnumerable<Movie> GetMovies()
+        {
+            return new List<Movie>
+            {
+                new Movie { Id = 1, Name = "The Karate Kid" },
+                new Movie { Id = 2, Name = "Terminator" }
+            };
         }
 
     }

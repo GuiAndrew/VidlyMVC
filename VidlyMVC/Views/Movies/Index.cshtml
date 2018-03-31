@@ -1,0 +1,31 @@
+﻿@model IEnumerable<VidlyMVC.Models.Movie>
+@{
+    ViewBag.Title = "Movies";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Movies</h2>
+
+@if (!Model.Any()) //if the model don't have anything, will do the if block,
+{
+    <text>No movies yet in the Vidly application!</text>
+}
+else //otherwise, will do the else:
+{
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Movie</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var movie in Model)
+            {
+                <tr>
+                    <td>@movie.Name</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+

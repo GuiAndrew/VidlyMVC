@@ -1,0 +1,33 @@
+﻿@model IEnumerable<VidlyMVC.Models.Customer>
+@{
+    ViewBag.Title = "Customers";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Customers</h2>
+
+@if (!Model.Any()) //if the model don't have anything, will do the if block,
+{
+    <text>No customers yet in the Vidly application!.</text>
+}
+else //otherwise, will do the else:
+{
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Customer</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var customer in Model)
+            {
+                <tr>
+                    <td>@Html.ActionLink(customer.Name, "Details", "Customers", new { id = customer.Id }, null)</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+
+
