@@ -1,5 +1,5 @@
 ﻿@*@using VidlyMVC.Models
-@model VidlyMVC.Models.Movie*@
+    @model VidlyMVC.Models.Movie*@
 @model VidlyMVC.ViewModels.RandomMovieViewModel
 
 @{
@@ -7,9 +7,28 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@*<h2>@Model.Name</h2>*@ 
+@*<h2>@Model.Name</h2>*@
 @*<h2>@( ((Movie)ViewData["Movie"]).Name )</h2>*@
 @*<h2>@( ((Movie)ViewBag.Movie).Name )</h2>*@
 
-<h2>@Model.Movie.Name</h2>
+@{ 
+    var className = Model.Customers.Count > 1 ? "popular" : null; //If is greater than one the classe popular will be render.
+}
+<h2 class="@className">@Model.Movie.Name</h2>
+
+@if (Model.Customers.Count == 0) //if is equal to zero, will do the if block,
+{
+    @*<p>No one has rented this movie before.</p>*@
+    <text>No one has rented this movie before.</text>
+}
+else //otherwise, will do the else:
+{
+    <ul>
+        @foreach (var customer in Model.Customers)
+        {
+            <li>@customer.Name</li>
+        }
+    </ul>
+}
+
 
