@@ -38,4 +38,15 @@ select Keyboard -> In the TextBox Show commands containning, enter packagemanage
 Shortcut Keys put the keys that will be the shortcut. In this case i chose alt + /. -> Next click Assing -> next Ok.
 NOTE: Be careful not to overlap with shorcut that are already created.
 
-17 - 
+//================================= Exercise 1 - Add membership type to list of customers:
+17 - Add membership type to list of customers:
+ * First we alter the classe MembershipType, and add the Name property;
+ * Next create an migration to add this property;
+ * Next we update this migration;
+ * To add some seed to this column Name in the MembershipType, we add one empty migration, and do the seed in the 
+ Sql method.
+ * Next update this migration.
+ * Last we alter the view to add the Name of the MembershipType.
+ //========================================================================================
+
+ 18 - 
