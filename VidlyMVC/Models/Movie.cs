@@ -18,6 +18,7 @@ namespace VidlyMVC.Models
         public byte Stock { get; set; }
 
         //Property of Navigation:
+        [Required]
         public Genre Genre { get; set; }
         public byte GenreId { get; set; } //To use as a foreign key.
     }

@@ -253,6 +253,10 @@
     <Compile Include="Migrations\201804101656587_FromIntStockToByteStock.Designer.cs">
       <DependentUpon>201804101656587_FromIntStockToByteStock.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201804101700362_RequiredToPropertyOfNavigationInMovie.cs" />
+    <Compile Include="Migrations\201804101700362_RequiredToPropertyOfNavigationInMovie.Designer.cs">
+      <DependentUpon>201804101700362_RequiredToPropertyOfNavigationInMovie.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -392,6 +396,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201804101656587_FromIntStockToByteStock.resx">
       <DependentUpon>201804101656587_FromIntStockToByteStock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804101700362_RequiredToPropertyOfNavigationInMovie.resx">
+      <DependentUpon>201804101700362_RequiredToPropertyOfNavigationInMovie.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
