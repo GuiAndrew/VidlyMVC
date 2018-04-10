@@ -15,7 +15,7 @@ namespace VidlyMVC.Models
         public string Name { get; set; }
         public DateTime ReleaseDate { get; set; }
         public DateTime DateAdded { get; set; }
-        public int Stock { get; set; }
+        public byte Stock { get; set; }
 
         //Property of Navigation:
         public Genre Genre { get; set; }
