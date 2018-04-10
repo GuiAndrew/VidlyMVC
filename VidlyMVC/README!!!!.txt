@@ -49,4 +49,10 @@ NOTE: Be careful not to overlap with shorcut that are already created.
  * Last we alter the view to add the Name of the MembershipType.
  //========================================================================================
 
- 18 - 
+ //================================= Exercise 2 - Add birthdate to customer:
+ 18 - Add birthdate to customer:
+  * First Add a property Birthdate to Customer. To accept null add ? to the property.
+  * Create an migration to add this property. Do the update too.
+  * Next Add a condition to the view Details of Customer, to see if the birthdate has value. If not, if is null, 
+  will not appear.
+  //========================================================================================

@@ -229,6 +229,14 @@
     <Compile Include="Migrations\201804101115284_EmptyMigrationToSeedNamePropertyOfMembershipType.Designer.cs">
       <DependentUpon>201804101115284_EmptyMigrationToSeedNamePropertyOfMembershipType.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201804101251463_AddBirthdatePropertyToCustomer.cs" />
+    <Compile Include="Migrations\201804101251463_AddBirthdatePropertyToCustomer.Designer.cs">
+      <DependentUpon>201804101251463_AddBirthdatePropertyToCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804101256095_AddNullToPropertyBirthdateOfCustomer.cs" />
+    <Compile Include="Migrations\201804101256095_AddNullToPropertyBirthdateOfCustomer.Designer.cs">
+      <DependentUpon>201804101256095_AddNullToPropertyBirthdateOfCustomer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -348,6 +356,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201804101115284_EmptyMigrationToSeedNamePropertyOfMembershipType.resx">
       <DependentUpon>201804101115284_EmptyMigrationToSeedNamePropertyOfMembershipType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804101251463_AddBirthdatePropertyToCustomer.resx">
+      <DependentUpon>201804101251463_AddBirthdatePropertyToCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804101256095_AddNullToPropertyBirthdateOfCustomer.resx">
+      <DependentUpon>201804101256095_AddNullToPropertyBirthdateOfCustomer.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

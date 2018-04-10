@@ -46,7 +46,8 @@ namespace VidlyMVC.Controllers
             //var customer = GetCustomers().SingleOrDefault(c => c.Id == id); //This is to use the method GetCustomers().
             //And to call the customer hard code in the nethod.
 
-            var customer = _context.Customers.SingleOrDefault(c => c.Id == id); //This call the customer in db.
+            //var customer = _context.Customers.SingleOrDefault(c => c.Id == id); //This call the customer in db.
+            var customer = _context.Customers.Include(c => c.MembershipType).SingleOrDefault(c => c.Id == id);
 
             if (customer == null) //If don't have any customer, will return a error.
             {
