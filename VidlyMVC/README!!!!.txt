@@ -56,3 +56,18 @@ NOTE: Be careful not to overlap with shorcut that are already created.
   * Next Add a condition to the view Details of Customer, to see if the birthdate has value. If not, if is null, 
   will not appear.
   //========================================================================================
+
+  //================================= Exercise 3 - Display the list of movies and their details:
+  19 - Display the list of movies and their details:
+   * First we add the DbSet for Movie in class ApplicationDbContext.
+   * Add class Movie to Models folder. 
+   * Add properties to Movies class, and Genre class.
+   * Every properties off Movies are Required.
+   * Populate table Movies with movies.
+   * The table Genre will contains referenced data, so we have to populate this table with the Sql method, in
+   an empty migration. Similar to what we do with MembershipType.
+   * Next we have to modify the MoviesController e Views(Index and Details) properly.
+   * When we click in one movie will appear the details.
+   //========================================================================================
+
+   20 - 

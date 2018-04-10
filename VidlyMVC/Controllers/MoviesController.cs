@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -10,6 +11,15 @@ namespace VidlyMVC.Controllers
 {
     public class MoviesController : Controller
     {
+        ///First we declare a field Db context to access the DB:
+        private ApplicationDbContext _context;
+
+        //We inialize the db context field in the ctor:
+        public MoviesController()
+        {
+            _context = new ApplicationDbContext();
+        }
+
         // GET: Movies
         public ActionResult Random() //ActionResult is the base class for all action results in ASP.NET MVC.
         {
@@ -80,20 +90,32 @@ namespace VidlyMVC.Controllers
         //============== 
         public ViewResult Index()
         {
-            var movies = GetMovies();
+            //var movies = GetMovies();
+            var movies = _context.Movies.Include(m => m.Genre).ToList(); //Eager Loading.
 
             return View(movies); //Will return the list of movies to the view Index.
         }
 
-        //This method is to do the list of movies.
-        private IEnumerable<Movie> GetMovies()
+        public ActionResult Details(int id)
         {
-            return new List<Movie>
+            var movie = _context.Movies.Include(m => m.Genre).SingleOrDefault(m => m.Id == id);
+
+            if (movie == null) //If don't have any customer, will return a error.
             {
-                new Movie { Id = 1, Name = "The Karate Kid" },
-                new Movie { Id = 2, Name = "Terminator" }
-            };
+                return HttpNotFound();
+            }
+
+            return View(movie);
         }
 
+        ////This method is to do the list of movies.
+        //private IEnumerable<Movie> GetMovies()
+        //{
+        //    return new List<Movie>
+        //    {
+        //        new Movie { Id = 1, Name = "The Karate Kid" },
+        //        new Movie { Id = 2, Name = "Terminator" }
+        //    };
+        //}
     }
 }
