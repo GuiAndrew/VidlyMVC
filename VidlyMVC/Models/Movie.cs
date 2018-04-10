@@ -13,14 +13,8 @@ namespace VidlyMVC.Models
         [Required]
         [StringLength(255)]
         public string Name { get; set; }
-
-        [Required]
         public DateTime ReleaseDate { get; set; }
-
-        [Required]
         public DateTime DateAdded { get; set; }
-
-        [Required]
         public int Stock { get; set; }
 
         //Property of Navigation:
