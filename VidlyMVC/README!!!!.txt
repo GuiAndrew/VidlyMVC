@@ -83,4 +83,30 @@ NOTE: Be careful not to overlap with shorcut that are already created.
    Second:
     * Is to put an HTML label element.
 
-   25 - 
+   25 - Next we will create a drop-down list.
+
+   26 - Add in IdentityModels class inside Models folder, the DbSet for membershipTypes. In DbContext method.
+
+   27 - Create a variabel of type var to put the list of membershipTypes.
+
+   28 - Create a ViewModel called(NewCustomerViewModel) in ViewModels folder.
+
+   29 - Rearrange the View accordingly.
+
+   30 - Create a new action(method) called Create in Customers controller.
+
+   31 - Create a button Save in View.
+
+   32 - Add in action(method) the add, save and the RedirectAction.
+
+   33 - 
+
+
+
+
+
+
+
+
+
+
