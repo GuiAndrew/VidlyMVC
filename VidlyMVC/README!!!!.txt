@@ -70,4 +70,17 @@ NOTE: Be careful not to overlap with shorcut that are already created.
    * When we click in one movie will appear the details.
    //========================================================================================
 
-   20 - 
+   20 - Create a new action(method) inside of Customers Controller called New.
+
+   21 - Create a view for this action. Empty view.
+
+   22 - Don't forget, we are using HTML Helpers methods, and LINQ Methods.
+
+   23 - When we use the "using", it will do the dispose, it will do the dispose the HTML tag too.
+
+   24 - We have 2 ways to change the Birthdate name to Date of Birth. One:
+    * Is in the Customer class inside Models folder, put an DataAnnotation.
+   Second:
+    * Is to put an HTML label element.
+
+   25 - 
