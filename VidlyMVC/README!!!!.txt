@@ -99,7 +99,24 @@ NOTE: Be careful not to overlap with shorcut that are already created.
 
    32 - Add in action(method) the add, save and the RedirectAction.
 
-   33 - 
+   33 - In view Index of Customers, we are gonna change the ActionLink from Details to Edit.
+
+   34 - Next create an new method(action) called Editin Customers controller.
+
+   35 - Change the name of the viewModel from the NewCustomerViewModel to CustomerFormViewModel.
+
+   36 - Change the view name form New to CustomerForm. Don't forget to change in the beginning the part of the model 
+   to @model VidlyMVC.ViewModels.CustomerFormViewModel.
+
+   37 - Change the place of the checkBox to the bottom, before the button, in the view CustomerForm.
+
+   38 - We will change the method(action) form Create to Save, this method is in controller Customers. And we have to 
+   change the parameter of BeginForm from "Create" to "Save" in view CustomerForm.
+
+   39 - This method Save will check if contains an id or not. If don't have an id add a new customer, if have an id do
+   an update to that customer.
+
+   40 - We have to add an input hidden field to id in the view CustomerForm, to method save check the id.
 
 
 
