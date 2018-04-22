@@ -65,13 +65,6 @@ namespace VidlyMVC.Controllers
         // GET: Customers
         public ViewResult Index()
         {
-            //var customers = GetCustomers(); //This call the method GetCustomers.
-
-            //var customers = _context.Customers; //This os to get the customers in database. But this is what we 
-            //call deferred execution. 
-
-            //var customers = _context.Customers.ToList(); //Wiht the ToList, will immediately call the customers.
-
             var customers = _context.Customers.Include(c => c.MembershipType).ToList(); //Eager Loading.
 
             return View(customers); //Will return the list of customers to the view Index.
@@ -80,9 +73,6 @@ namespace VidlyMVC.Controllers
         // This method will pass the id of the single customer to the view to do the details of that customer.
         public ActionResult Details(int id)
         {
-            //var customer = GetCustomers().SingleOrDefault(c => c.Id == id); //This is to use the method GetCustomers().
-            //And to call the customer hard code in the nethod.
-
             //var customer = _context.Customers.SingleOrDefault(c => c.Id == id); //This call the customer in db.
             var customer = _context.Customers.Include(c => c.MembershipType).SingleOrDefault(c => c.Id == id);
 
@@ -94,27 +84,17 @@ namespace VidlyMVC.Controllers
             return View(customer);
         }
 
-        ////This method is to do the list of customers.
-        //private IEnumerable<Customer> GetCustomers()
-        //{
-        //    var customers = new List<Customer> {
-        //        new Customer { Id = 1, Name = "Bruce Kim" },
-        //        new Customer { Id = 2, Name = "Blenda Kinda" }
-        //    };
-
-        //    return customers;
-        //}
-
         //// Method Edit:
         public ActionResult Edit(int id)
         {
             var customer = _context.Customers.SingleOrDefault(c => c.Id == id); //Will return the customer with the specific id.
 
-            if (customer == null)
+            if (customer == null) //If customer for null,
             {
                 return HttpNotFound();
             }
 
+            //If customer not null:
             var viewModel = new CustomerFormViewModel
             {
                 Customer = customer, 

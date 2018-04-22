@@ -116,10 +116,25 @@ NOTE: Be careful not to overlap with shorcut that are already created.
    39 - This method Save will check if contains an id or not. If don't have an id add a new customer, if have an id do
    an update to that customer.
 
-   40 - We have to add an input hidden field to id in the view CustomerForm, to method save check the id.
+   40 - We have to add an input hidden field to id in the view CustomerForm, to method save check the id.  
 
+   //================================= Exercise 4 - Do the part to create a new movie and edit a movie:
+   41 - Create a new movie and edit a movie:
+    * Do this into a few parts, instead os doing all in one go.
+    * Create a viewModel for the moview.
+    * In movie controller add some methods, New, Edit and Save.
+    * Add a button in the begin of the Index view of movies. This button is a link to create a new movie.
+    * Change the link from Details to Edit.
+    * The form to create and edit is the same.
+    * When is to create will appear New Movie, when is to edit will appear Edit Movie.
+    * The form to create or edit have to have 4 fields, Name, Release Date, Genre(DropDown List) and Number in Stock.
+    Don't forget, the hidden field to id.
+   //========================================================================================
 
-
+   42 - Troubleshooting Entity Validation Errors:
+    * In this case, we either place a try/catch block, or change the required for the GenreId property. As the 
+	Entity Framework understands that it is the same as the Genre navigation property, we do not need to create a
+	new migration.
 
 
 

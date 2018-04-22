@@ -6,6 +6,11 @@
 
 <h2>Movies</h2>
 
+@Html.ActionLink("New Movie", "New", "Movies", new { @class = "btn btn-primary" })
+
+<br />
+<br />
+
 @if (!Model.Any()) //if the model don't have anything, will do the if block,
 {
     <text>No movies yet in the Vidly application!</text>
@@ -24,7 +29,7 @@ else //otherwise, will do the else:
             {
                 <tr>
                     @*<td>@movie.Name</td>*@
-                    <td>@Html.ActionLink(movie.Name, "Details", "Movies", new { id = movie.Id }, null)</td>
+                    <td>@Html.ActionLink(movie.Name, "Edit", "Movies", new { id = movie.Id }, null)</td>
                     <td>@movie.Genre.Name</td>
                 </tr>
             }
