@@ -135,6 +135,28 @@ NOTE: Be careful not to overlap with shorcut that are already created.
     * In this case, we either place a try/catch block, or change the required for the GenreId property. As the 
 	Entity Framework understands that it is the same as the Genre navigation property, we do not need to create a
 	new migration.
+	
+   43 - Adding Validation:
+    -> To use validation in controller, we have to following 3 steps:
+	* 1 -> Add data annotations in models classes;
+	* 2 -> Use the ModelState.IsValid(if is not valid, return to the same view);
+	* 3 -> Use placeholders to show messages to users in the views. This means for example if we are putting a 
+	number in a field that only accepts letters, it shows a message indicating that it can only put letters.
+
+	44 - Styling Validation Errors:
+	* In the browser, click on the error message with the right mouse button, then select the inspector, check the 
+	name of the class of the message, in this case is field-validation-error, and the input too, to make input red
+	also, in this case it is input-validation-error.
+	* In the css that is inside the Content folder named Site, at the end of the file put the red color for the field
+	and the border for input to get the color red also.
+	* Put the @Html.ValidationMessageFor into the MembershipTypeId in the view too.
+	* Modify the new action(method) in the Customer controller, so that we can do the validations.
+
+	45 - Overwrite the message error:
+	* in the the model class, in the Required DataAnnotation add the errorMessage.
+
+	46 - 
+
 
 
 

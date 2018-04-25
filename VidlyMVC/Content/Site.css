@@ -22,3 +22,11 @@ select,
 textarea {
     max-width: 280px;
 }
+
+/* We put here to show the error in red */
+.field-validation-error {
+    color: red;
+}
+.input-validation-error {
+    border: 2px solid red;
+}

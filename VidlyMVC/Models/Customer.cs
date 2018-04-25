@@ -10,7 +10,7 @@ namespace VidlyMVC.Models
     {
         public int Id { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Please enter a valid name!")]
         [StringLength(255)]
         public string Name { get; set; }
 
@@ -23,6 +23,7 @@ namespace VidlyMVC.Models
         public MembershipType MembershipType { get; set; } //One to.
 
         [Display(Name = "Membership Type")]
+        [Required(ErrorMessage = "The Membership Type field is required!")]
         public byte MembershipTypeId { get; set; } //To use as a foreign key.
     }
 }
