@@ -155,7 +155,19 @@ NOTE: Be careful not to overlap with shorcut that are already created.
 	45 - Overwrite the message error:
 	* in the the model class, in the Required DataAnnotation add the errorMessage.
 
-	46 - 
+	46 - Custom Validation:
+	* Create a class named Min18YearsIfAMember that will inherit from the ValidationAttribute that belongs to the
+	System.ComponentModel.DataAnnotations. This class will stay in the Models folder.
+	* Create a method inside the Min18YearsIfAMember class called ValidationResult IsValid.
+	* In the Customer class that is inside the Models folder, in the Birthdate property, call the validation of the 
+	Min18YearsIfAMember class.
+	* Add in the CustomerForm view the validationMessageFor for the Birthdate.
+
+	47 - Refactoring Magic Numbers:
+	* Create two statics read only properties in the MembershipType class.
+	* Then in the Min18YearsIfAMember class, replace the 0 and the 1 with the name of the created properties.
+
+
 
 
 
