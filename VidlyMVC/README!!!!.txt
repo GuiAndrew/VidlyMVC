@@ -181,6 +181,27 @@ NOTE: Be careful not to overlap with shorcut that are already created.
 	* In the view CustomerFrom add the section script.
 	* Note: Client side validation, only work with standart data annotations. The class we created will have no effect.
 
+	50 - Anti-forgery Tokens:
+	* Anti-forgery token, prevent us from being pirated. This method creates a token, which is like a secret code, and places 
+	it as a hidden field in the form, and also places a cookie on the user's PC.
+	* Let's put the @Html.AntiForgeryToken () before the button in the CustomerForm view.
+	* We also put in the Save method inside the Customers controller, the ValidateAntiForgeryToken.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
