@@ -167,6 +167,23 @@ NOTE: Be careful not to overlap with shorcut that are already created.
 	* Create two statics read only properties in the MembershipType class.
 	* Then in the Min18YearsIfAMember class, replace the 0 and the 1 with the name of the created properties.
 
+	48 - Continua no projecto VidlyMVC:
+	* To put the messages at the top all together, we put in the CustomerForm view (in this case) the @Html.ValidationSummary().
+	* Do not forget to put Customer = new Customer () (This is to initialize the Customer and thus the customer will have a value 
+	and will not give the error) in the New method in the Customers controller. If it will not give Id error is required.
+	* We can put true and a sentence as the ValidationSummary parameter. This is personalized.
+	* Change the order of the fields, first the ones that appear with error messages and then the ones that do not have error 
+	messages.
+	* In the browser, in the message of the validationSummary, see the inspect to know what is the class to put this message
+	with red too. Change to red in Site.css.
+
+	49 - Client-side Validation:
+	* In the view CustomerFrom add the section script.
+	* Note: Client side validation, only work with standart data annotations. The class we created will have no effect.
+
+
+
+
 
 
 
