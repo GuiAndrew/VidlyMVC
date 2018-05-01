@@ -187,6 +187,24 @@ NOTE: Be careful not to overlap with shorcut that are already created.
 	* Let's put the @Html.AntiForgeryToken () before the button in the CustomerForm view.
 	* We also put in the Save method inside the Customers controller, the ValidateAntiForgeryToken.
 
+	51 - Exercise:
+	   - implement in the form of view Movies (New) the validations:
+	* 1 - Remove the default date 1 Jan 0001.
+	* 2 - Stock should also remove 0 which is default. And if put 0 will give validation error, it must be between 1 and 20.
+	* 3 - All fields are required. 
+	* 4 - And we'll also put the anti-forgery token. We put this near of the button, in view MovieForm.
+	* To remove the default date and remove the default stock 0:
+	* First is to remove Movie = new Movie () in method New in the Movies controller, within initialization of 
+	the MovieFormViewModel.
+	* Next we do in the MovieFrom view put @Html.Hidden ("Movie.Id", (Model.Movie! = Null)? Model.Movie.Id: 0) at the bottom, 
+	near of the button.
+	* Or:
+	* create a viewModel. Since it is already created(MovieFormViewModel), we will change this ViewModel. Do not forget to 
+	change the view MovieForm to use this ViewModel. In the view do control + H, put .Movie. replace .(dot) and click enter. 
+	And we have to do one of two things, either we change the MovieController Edit and Save Methods and we put the properties 
+	inside the new MovieFormViewModel, or we create in the ViewModel(MovieFormViewModel) constructors to initialize these 
+	properties. And then just pass as a parameter into the new MovieFormViewModel in the Edit and Save methods.
+
 
 
 

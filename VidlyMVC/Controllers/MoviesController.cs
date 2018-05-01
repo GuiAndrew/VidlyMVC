@@ -48,6 +48,7 @@ namespace VidlyMVC.Controllers
 
             var viewModel = new MovieFormViewModel
             {
+                //Movie = new Movie(), //This will make the date, apear with 1 Jan 0001. And 0 in Stock.
                 Genres = genres
             };
 
@@ -64,9 +65,8 @@ namespace VidlyMVC.Controllers
                 return HttpNotFound();
             }
 
-            var viewModel = new MovieFormViewModel
+            var viewModel = new MovieFormViewModel(movie)
             {
-                Movie = movie,
                 Genres = _context.Genres.ToList()
             };
 
@@ -75,8 +75,19 @@ namespace VidlyMVC.Controllers
 
         //// Method Save Movie
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Save(Movie movie)
         {
+            if (!ModelState.IsValid)
+            {
+                var viewModel = new MovieFormViewModel(movie)
+                {
+                    Genres = _context.Genres.ToList()
+                };
+
+                return View("MovieForm", viewModel);
+            }
+
             if (movie.Id == 0) //If movie don't exist, create a new one:
             {
                 movie.DateAdded = DateTime.Now;
