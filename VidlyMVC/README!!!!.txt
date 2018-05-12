@@ -187,6 +187,7 @@ NOTE: Be careful not to overlap with shorcut that are already created.
 	* Let's put the @Html.AntiForgeryToken () before the button in the CustomerForm view.
 	* We also put in the Save method inside the Customers controller, the ValidateAntiForgeryToken.
 
+	//================================= Exercise 5 - Implement in the form of view Movies (New) the validations:
 	51 - Exercise:
 	   - implement in the form of view Movies (New) the validations:
 	* 1 - Remove the default date 1 Jan 0001.
@@ -204,11 +205,33 @@ NOTE: Be careful not to overlap with shorcut that are already created.
 	And we have to do one of two things, either we change the MovieController Edit and Save Methods and we put the properties 
 	inside the new MovieFormViewModel, or we create in the ViewModel(MovieFormViewModel) constructors to initialize these 
 	properties. And then just pass as a parameter into the new MovieFormViewModel in the Edit and Save methods.
+	//========================================================================================
 
+	52 - Building an API:
+	* Create a folder named API within the controller folder.
+	* Create a Web Controller API 2 Controller - Empty, inside the API folder. The API name will be Customers. Once we create 
+	the API will appear a txt readme. You have instructions on how to use api.
+	* After opening Global.asax.cs, put the GlobalConfiguration.Configure (WebApiConfig.Register); at the beginning of the 
+	Application_Start method. It belongs to System.Web.Http.
+	* In the API controller, we can verify that it is derived from the ApiController.
+	* Then build the methods, do not forget that you have to have a method that will return a list of customer (GET), a 
+	singular customer (GET), a to create (POST), a to change (PUT) and another to do the delete (DELETE).
 
-
-
-
+	53 - Testing an API:
+	* If we put the url http://localhost:50972/api/customers we can see that a client list will appear in XML.
+	* The web API has what is called a media formatter.
+	* What is returned from an action (method), in this case, will be formatted according to what the client requests.
+	* We can see this through the google inspector, go to Network and refresh, then see the customers, verify that the 
+	content-type is xml. By default if we do not change it is xml.
+	* Install Postman if you do not have.
+	* Put the url in the Postman(Choose GET) and than click on the button Send.
+	* Change to POST, choose the raw, change to JSON in the dropdown, and in the text area put the customer we want and 
+	Click on the Send button.
+	* If error occurs, Go to Headers, put Content-Type in the Key, and application/json in Value.
+	* The status 200 is successful and return content.
+	* For the PUT and DELETE, put the url http://localhost:50972/api/customers/6, the 6th id that you want to change.
+    The PUT and DELETE will give status 204, which is successful, but does not return results. This is because these methods 
+	are void.
 
 
 
