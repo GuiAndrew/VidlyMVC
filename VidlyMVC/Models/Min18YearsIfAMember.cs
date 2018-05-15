@@ -1,8 +1,10 @@
-﻿using System;
+﻿using AutoMapper;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using VidlyMVC.DTOS;
 
 namespace VidlyMVC.Models
 {
@@ -10,7 +12,16 @@ namespace VidlyMVC.Models
     {
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
-            var customer = (Customer)validationContext.ObjectInstance;
+            //var customer = (Customer)validationContext.ObjectInstance;
+            Customer customer = new Customer();
+            if (validationContext.ObjectType == typeof(Customer))
+            {
+                customer = (Customer)validationContext.ObjectInstance;
+            }                
+            else
+            {
+                customer = Mapper.Map((CustomerDto)validationContext.ObjectInstance, customer);
+            }                
 
             //// If customer Id is 0 or 1:
             //// With Magic numbers:

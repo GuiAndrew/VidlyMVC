@@ -233,7 +233,56 @@ NOTE: Be careful not to overlap with shorcut that are already created.
     The PUT and DELETE will give status 204, which is successful, but does not return results. This is because these methods 
 	are void.
 
-	54 - 
+	54 - Data Transfer Objects:
+	* As our API receives and returns objects can be potentially dangerous. This is because the Customer object is part of the 
+	"main" model of our application. And a detailed implementation that can be altered frequently as it receives new features 
+	in our application is conserted. These changes may break clients that are dependent on the customer object. For example, 
+	if we change or rename the name property, it can impact customers who depend on this property. So we need to do is put the 
+	contract with this API as stable as possible. These contracts should change at a slower pace than domain objects.
+	* To solve this situation, we need to create a different model, which is called DTO (Data tranfer object).
+	* This DTO is a simple data structure and is used to transfer data from the client to the server and vice versa. This 
+	is why we call the data transfer object.
+	* By creating DTOS we are reducing the chances our API breaks as we change / refactor our domain model.
+	* We should also remember that changing these DTOS can be costly. So when we want to change these DTOS 
+	we have to think about the strategy to implement.
+	* What is meant by this, is that the API should not receive and return domain objects.
+	* Another problem is that when using domain objects in the API we are opening "holes" in the security of our application.
+	* A Hacker can easily pass additional data through JSON and they will map to our domain object.
+	* And if one of this property should not be changed, the hacker can easily bypass and change.
+	* But when using a DTO we can easily not include these properties, if we don't need them.
+	* Add a folder named DTOS to the project roots.
+	* Within this folder create a class called CustomerDto.
+	* Add a folder named DTOS to the project roots.
+	* Within this folder create a class called CustomerDto.
+	* Put only the properties we want. In the case of the MembershipType property, we can remove and we can use 
+	bytes or integers.
+	* We can also remove some data annotations, since they were used for the forms.
+
+	55 - Auto Mapper:
+	* To install the Auto-Mapper:
+	 -> Open the Package Manager Console;
+	 -> And write -> Install-package automapper -version: 4.1 or use the most current version.
+	* In the App_Start folder create a class named MappingProfile. This class will inherit from Profile, which 
+	comes from the namespace automapper.
+	* When calling this method, Automapper uses reflexion to check this types, finds their properties and maps 
+	them based on their names.
+	* Open Global.axax.cs, and in the first line within the Application_Start method, put:
+     -> Mapper.Initialize (c => c.AddProfile <MappingProfile> ());
+	* Change the CustomersController API to make use of CustomerDto.
+
+	56 - Using Camel Notation:
+	* When looking at the results of our API, the GET of list of Customers, the properties of these JSON 
+	objects are named using Pascal notation. The first letter of each word is in uppercase. But in Javascript 
+	we use Camel Notation, the first letter is lowercase and the first letter of the following words is upercase.
+	* To change to Camel Notation, go to WebApiConfig.cs and do the changes.
+
+	57 - IHttpActionResult: 
+	* When we create a customer, the status must be 201 or create. The status we are having is 200 OK.
+	* We should have even more control over the response return from our action.
+	* We changed CustomerDto to IHttpActionResult in the CustomersController.
+	* Change the Min18YearsIfAMember class to not give errors.
+
+
 
 
 
