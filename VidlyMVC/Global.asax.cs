@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AutoMapper;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -6,6 +7,7 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using VidlyMVC.App_Start;
 
 namespace VidlyMVC
 {
@@ -13,6 +15,9 @@ namespace VidlyMVC
     {
         protected void Application_Start()
         {
+            //To use the class MappingProfile. 
+            Mapper.Initialize(c => c.AddProfile<MappingProfile>());
+
             //Read the readme.txt. This appear after create the first api controller.
             GlobalConfiguration.Configure(WebApiConfig.Register);
 
