@@ -282,6 +282,14 @@ NOTE: Be careful not to overlap with shorcut that are already created.
 	* We changed CustomerDto to IHttpActionResult in the CustomersController.
 	* Change the Min18YearsIfAMember class to not give errors.
 
+	58 - Exercise: 
+	* First we modify the GetCustomers, UpdateCustomer, DeleteCustomer methods to also use the IHttpActionResult. 
+	And the UpdateCustomer, DeleteCustomer methods to stop being void and start returning values, to have a return.
+	* Second, create the MovieDto class in the Dtos folder.
+	* Third, create the api controller called MoviesController.
+	* Fourth, add the IHttpActionResult methods in this new class.
+	* Fifth, in the MappinProfiler class, which is in the App_Start folder, put the Movie class Mapper into 
+	the MovieDto class.
 
 
 
